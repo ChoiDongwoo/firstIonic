@@ -3,23 +3,35 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { TaskListPage } from '../pages/tasklist/tasklist';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCT0QaETVQJLHZbju8JnSdVnzMQ3ZlA-9E",
+  authDomain: "test-c8901.firebaseapp.com",
+  databaseURL: "https://test-c8901.firebaseio.com",
+  projectId: "test-c8901",
+  storageBucket: "",
+  messagingSenderId: "902083682403"
+}
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    TaskListPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    TaskListPage
   ],
   providers: [
     StatusBar,
