@@ -7,6 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { MyApp } from './app.component';
 import { TaskListPage } from '../pages/tasklist/tasklist';
+import { Dialogs } from '@ionic-native/dialogs';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCT0QaETVQJLHZbju8JnSdVnzMQ3ZlA-9E",
@@ -36,6 +37,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    Dialogs,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
